@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <button id="botao">Teste</button>
+    <script src="https://web-button.mati.io/button.js"></script>
+    
+    <mati-button 
+        clientid="60fecf1efcc76f001b5b6790"
+        language="en"
+        flowId=""
+        metadata='{"fixedLanguage":"en"}' 
+    />
+
+    <script>
+        $('mati-button').on('click', e => console.log("click"))
+        $('mati-button').on('mati:exitedSdk', e => console.log("Exit"))
+        $('mati-button').on('mati:userFinishedSdk', e => console.log("Finished"))
+    </script>
+</body>
+</html>

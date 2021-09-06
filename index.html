@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+
+<body>
+
+    <script src="https://web-button.mati.io/button.js"></script>
+    
+    <mati-button 
+        clientid="60fecf1efcc76f001b5b6790"
+        language="en"
+        flowId=""
+        metadata='{"fixedLanguage":"en"}' 
+    />
+
+
+
+    <script>
+        //Setting a fixed language based on browser's language;
+        const $ = document.querySelector.bind(document);
+        const matiButton = $("mati-button")
+        const deviceLanguage = window.navigator.language.slice(0,2)
+        const botao = $("botao")
+
+        const metadataAtt = `{"fixedLanguage":"${deviceLanguage}"}`
+
+        $('mati-button').setAttribute('metadata', metadataAtt)
+        $('mati-button').setAttribute('language', deviceLanguage)
+
+        matiButton.addEventListener('click', e => console.log('teste'))
+    </script>
+</body>
+
+</html>
