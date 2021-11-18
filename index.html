@@ -12,12 +12,15 @@
 
     <script src="https://web-button.mati.io/button.js"></script>
     
-    <mati-button 
+    <mati-button *ngIf="env == 'staging'" id="boton_mati" clientid="6079d968857e59001b646d2f" flowId="6079d967857e59001b646d2e" metadata='{"userId":"{{userId}}"}'></mati-button>
+
+
+    <!-- <mati-button 
         clientid="6139573400a2dc001b53e885"
         language="en"
         flowId="6139573400a2dc001b53e884"
         metadata='{"fixedLanguage":"pt"}' 
-    />
+    /> -->
     
     <!-- https://signup.getmati.com/?merchantToken=
     6093fe1820df63001be1e4e9
