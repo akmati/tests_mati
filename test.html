@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+
+<body>
+
+    <script src="https://web-button.getmati.com/button.js"></script>
+
+    <mati-button id="mati_button" clientId="60d5e30976b8ff001b3182ed" flowId="62504ac2fcfa96001ba113ef" color=“#FFFFF”
+        metadata='{"user_id":"12345", "fixedLanguage":"es", "accountID":"2222"}'>
+    </mati-button>
+
+
+    <script>
+        //Setting a fixed language based on browser's language;
+        // const $ = document.querySelector.bind(document);
+        // const matiButton = $("mati-button")
+        // const deviceLanguage = window.navigator.language.slice(0,2)
+        // const botao = $("botao")
+
+        // const metadataAtt = `{"fixedLanguage":"${deviceLanguage}"}`
+
+        // $('mati-button').setAttribute('metadata', metadataAtt)
+        // $('mati-button').setAttribute('language', deviceLanguage)
+
+        // matiButton.addEventListener('click', e => console.log('teste'))
+        const button = document.getElementById("mati_button");
+        // setup callbacks
+        // Message when a flow starts
+        button.addEventListener('mati:loaded', (detail) => {
+            console.log('Started Flow', detail)
+        })
+        // Call to receive Identity after finishing the upload in the SDK
+        button.addEventListener('mati:userFinishedSdk', ({ detail }) => {
+            console.log('Finished Flow', detail.identityId);
+            //window.location.href="https://www.getmati.com/";
+        })
+        button.addEventListener("click", () => {
+            console.log("clicked")
+        })
+        // Call to receive message of flow not finished
+        let sessionId = "1231"
+        button.addEventListener('mati:exitedSdk', ({ detail, sessioId }) => {
+            console.log('Abandoned Flow', sessionId)
+
+        })
+    </script>
+</body>
+
+</html>
